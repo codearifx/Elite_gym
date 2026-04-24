@@ -1,2 +1,1 @@
-# Elite_gym
-Fitness / Gym platform Built with React + Vite + Tailwind Features like membership, dashboard, chatbot, fitness tools
+Elite Gym is a modern fitness platform built with React, Vite, and Tailwind CSS with features like membership system, dashboard, chatbot, and fitness tools.
