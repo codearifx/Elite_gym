@@ -14,7 +14,7 @@ export const registerUser = async (req, res) => {
     // First user is created as admin implicitly if no users exist, or we just stick to default user
     const totalUsers = await User.countDocuments();
     const role = totalUsers === 0 ? 'admin' : 'user';
-    const isActive = totalUsers === 0 ? true : false; // First user is active admin
+    const isActive = true; // Auto-approve all users for now
 
     const user = await User.create({ name, email, password, role, isActive });
 
@@ -35,11 +35,7 @@ export const loginUser = async (req, res) => {
   try {
     const user = await User.findOne({ email });
     if (user && (await user.matchPassword(password))) {
-      
-      if(!user.isActive) {
-         return res.status(401).json({ message: 'Account pending admin approval' });
-      }
-
+      // Removed isActive block to allow users to log in immediately
       res.json({
         user: {
           _id: user._id,

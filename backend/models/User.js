@@ -7,8 +7,24 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   role: { type: String, enum: ['user', 'admin'], default: 'user' },
   isActive: { type: Boolean, default: false }, // Requires admin approval
+  
+  // Membership & Payments
   membershipStatus: { type: String, enum: ['Active', 'Expired', 'None'], default: 'None' },
   paymentStatus: { type: String, enum: ['Paid', 'Not Paid'], default: 'Not Paid' },
+  membershipType: { type: String, enum: ['Monthly', 'Yearly', 'None'], default: 'None' },
+  membershipStartDate: { type: Date },
+  membershipEndDate: { type: Date },
+  
+  // Basic Information
+  sex: { type: String, enum: ['Male', 'Female', 'Other'] },
+  age: { type: Number },
+  height: { type: Number }, // in cm or inches depending on preference
+  weight: { type: Number }, // in kg or lbs
+  goals: { type: String },
+
+  // Daily Tasks System
+  currentTaskDay: { type: Number, default: 1 }, // Ranges from 1 to 29
+  lastTaskCompletionDate: { type: Date }, // To ensure 1 task per day
 }, { timestamps: true });
 
 // Hash password before saving

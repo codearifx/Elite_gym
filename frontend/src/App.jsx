@@ -1,19 +1,25 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
 
 // Pages
 import Home from './pages/Home';
+import Chatbot from './components/Chatbot';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Services from './pages/Services';
+import ServiceDetails from './pages/ServiceDetails';
 import Trainers from './pages/Trainers';
-import Membership from './pages/Membership';
+import MembershipForm from './pages/MembershipForm';
+import Payment from './pages/Payment';
+import EliteSquad from './pages/EliteSquad';
 import Dashboard from './pages/Dashboard';
 import AdminDashboard from './pages/AdminDashboard';
+import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -28,8 +34,19 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/services" element={<Services />} />
+              <Route path="/services/:id" element={<ServiceDetails />} />
               <Route path="/trainers" element={<Trainers />} />
-              <Route path="/membership" element={<Membership />} />
+              <Route path="/membership-form" element={<MembershipForm />} />
+              <Route path="/elite-squad" element={<EliteSquad />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route 
+                path="/payment" 
+                element={
+                  <ProtectedRoute>
+                    <Payment />
+                  </ProtectedRoute>
+                } 
+              />
 
               {/* Protected Routes */}
               <Route 
@@ -53,13 +70,9 @@ function App() {
             </Routes>
           </main>
           
-          {/* Simple Footer */}
-          <footer style={{ borderTop: '1px solid rgba(57, 255, 20, 0.2)', padding: '2rem 0', textAlign: 'center', marginTop: 'auto', background: 'var(--bg-secondary)' }}>
-            <div className="container">
-              <h3 className="text-neon" style={{ marginBottom: '1rem' }}>ELITE STRENGTH</h3>
-              <p className="text-muted" style={{ fontSize: '0.9rem' }}>&copy; {new Date().getFullYear()} Elite Strength. All Rights Reserved.</p>
-            </div>
-          </footer>
+          <Footer />
+          {/* Global Chatbot */}
+          <Chatbot />
         </div>
       </Router>
     </AuthProvider>

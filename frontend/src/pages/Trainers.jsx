@@ -2,9 +2,9 @@ import React from 'react';
 
 const Trainers = () => {
   const trainers = [
-    { name: 'Alex Vance', spec: 'Powerlifting', exp: '10 Yrs', img: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-    { name: 'Sarah Connor', spec: 'HIIT & Cardio', exp: '8 Yrs', img: 'https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-    { name: 'Jack Reacher', spec: 'Bodybuilding', exp: '15 Yrs', img: 'https://images.unsplash.com/photo-1567013127596-f90b9f1d0ac7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' }
+    { name: 'Alex Vance', spec: 'Powerlifting', exp: '10 Yrs', img: 'https://vezlay.com/blog/wp-content/uploads/2023/04/Abhishek-Thevar%E2%80%8B.jpg' },
+    { name: 'Sarah Connor', spec: 'HIIT & Cardio', exp: '8 Yrs', img: 'https://studyactive.co.uk/cdn/shop/articles/iStock-2106554367.jpg?v=1744120384' },
+    { name: 'Jack Reacher', spec: 'Bodybuilding', exp: '15 Yrs', img: 'https://img.freepik.com/free-photo/attractive-bodybuilder-performing-strong-body-sport-gym_7502-10718.jpg?semt=ais_hybrid&w=740&q=80' }
   ];
 
   return (
